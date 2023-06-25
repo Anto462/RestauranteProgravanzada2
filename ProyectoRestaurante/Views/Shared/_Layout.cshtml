@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Golden Epicure</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="c:\users\usuario\.nuget\packages\bootstrap\5.3.0\contentfiles\any\any\wwwroot\js\bootstrap.bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link href="~/css/normalize.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/yourcode.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" asp-area="" asp-controller="" asp-action="">
+                The <span style="color: #D4AF37;">Golden</span> Epicure
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="" asp-action="">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="" asp-action="">Restaurantes</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sobre nosotros</a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Nuestra Historia</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Nuestros colaboradores</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Reseñas</a></li>
+                        </ul>
+                        <partial name="_LoginPartial" />
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <br>
+            <div class="nav-item ml-2">
+                <div class="music-player">
+                    <audio src="Audios/y2mate.com - Tartini Violin Sonata in G minor Devils Trill Sonata.mp3" autoplay loop>
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="buttons">
+                        <button class="btn trueblackbtn" onclick="document.querySelector('audio').pause()"><i class='fa fa-volume-off'></i></button>
+                        <button class="btn trueblackbtn" onclick="document.querySelector('audio').play()"><i class='fa fa-volume-up'></i></button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    <div>
+            
+            @RenderBody()
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 -  The <span style="color: #D4AF37;">Golden</span> Epicure
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
