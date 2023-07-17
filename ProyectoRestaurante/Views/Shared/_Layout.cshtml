@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@using ProyectoRestaurante.Models;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,8 +32,23 @@
                         <a class="nav-link" asp-area="" asp-controller="" asp-action="">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="" asp-action="">Restaurantes</a>
+                        <a class="nav-link" asp-area="" asp-controller="Mesas" asp-action="Index">Restaurantes</a>
                     </li>
+                @{
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Mesas" asp-action="Index">Administracion</a>
+                            </li>
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                }
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sobre nosotros</a>
                         <ul class="dropdown-menu dropdown-menu-dark">
