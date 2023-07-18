@@ -7,7 +7,7 @@ namespace ProyectoRestaurante.Models
     {
         [Key]
         public int IdRecomendacion {get; set;}
-        public int IdUsuario { get; set;}
+        public int Id { get; set;}
         public int IdPlato { get; set;}
         public string Comentario { get; set;}
     }
