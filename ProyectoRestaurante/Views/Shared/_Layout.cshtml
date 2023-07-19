@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link href="~/css/normalize.css" rel="stylesheet" />
     <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="~/css/dasboard.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/yourcode.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
@@ -40,7 +41,7 @@
                         if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Mesas" asp-action="Index">Administracion</a>
+                            <a class="nav-link" asp-area="" asp-controller="Administracion" asp-action="Index">Administracion</a>
                             </li>
                         }
                         else
@@ -80,8 +81,9 @@
             
             @RenderBody()
     </div>
-
-    <footer class="border-top footer text-muted">
+    <br>
+    <br>
+    <footer class="border-bottom footer text-muted">
         <div class="container">
             &copy; 2023 -  The <span style="color: #D4AF37;">Golden</span> Epicure
         </div>
