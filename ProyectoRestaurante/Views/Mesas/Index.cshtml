@@ -4,38 +4,43 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<section class="tables">
+    <h1 style="text-shadow: -1px 0px 6px #D4AF37;">Mesas</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Capacidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Capacidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdMesa">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdMesa">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdMesa">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <p>
+        <a asp-action="Create" class="btn btn-dark">Añadir</a>
+    </p>
+    <table class="table table-dark table-striped table-hover table-bordered border-light">
+        <thead>
+            <tr>
+                <th class="table-dark">
+                    @Html.DisplayNameFor(model => model.Capacidad)
+                </th>
+                <th class="table-dark">
+                    @Html.DisplayNameFor(model => model.Estado)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="table-dark">
+                        @Html.DisplayFor(modelItem => item.Capacidad)
+                    </td>
+                    <td class="table-dark">
+                        @Html.DisplayFor(modelItem => item.Estado)
+                    </td>
+                    <td>
+                        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.IdMesa">Editar</a> |
+                        <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.IdMesa">Ver mas</a> |
+                        <a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.IdMesa">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br>
+    <br>
+</section>
