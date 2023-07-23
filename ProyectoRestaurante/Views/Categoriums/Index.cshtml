@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProyectoRestaurante.Models2.Categorium>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-dark" >Añadir</a>
+</p>
+<table class="table table-dark table-striped table-hover table-bordered border-light">
+    <thead>
+        <tr>
+            <th class="table-dark">
+                @Html.DisplayNameFor(model => model.NombreCat)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="table-dark">
+                @Html.DisplayFor(modelItem => item.NombreCat)
+            </td>
+            <td>
+                    <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.IdCategoria">Editar</a> |
+                    <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.IdCategoria">Ver mas</a> |
+                    <a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.IdCategoria">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

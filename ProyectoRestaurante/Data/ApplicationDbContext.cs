@@ -11,6 +11,5 @@ namespace ProyectoRestaurante.Data
         {
         }
         public DbSet<ProyectoRestaurante.Models.Mesa>? Mesa { get; set; }
-        public DbSet<ProyectoRestaurante.Models.Reservacion>? Reservacion { get; set; }
     }
 }
