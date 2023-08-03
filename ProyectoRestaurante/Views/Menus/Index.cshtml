@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProyectoRestaurante.Models2.Menu>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section class="tables">
+<h1 style="text-shadow: -1px 0px 6px #D4AF37;">Platillos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-dark">Añadir</a>
+</p>
+    <table class="table table-dark table-striped table-hover table-bordered border-light">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombrePlato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCategoriaNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombrePlato)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCategoriaNavigation.IdCategoria)
+            </td>
+            <td>
+                        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.IdPlato">Editar</a> |
+                        <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.IdPlato">Ver mas</a> |
+                        <a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.IdPlato">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    <br>
+    <br>
+</section>

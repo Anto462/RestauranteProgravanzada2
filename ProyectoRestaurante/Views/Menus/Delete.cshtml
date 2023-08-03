@@ -1,4 +1,4 @@
-﻿@model ProyectoRestaurante.Models2.Reservacion
+﻿@model ProyectoRestaurante.Models2.Menu
 
 @{
     ViewData["Title"] = "Delete";
@@ -9,7 +9,7 @@
 <h3>¿Deseas proceder?</h3>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="IdReservacion" />
+        <input type="hidden" asp-for="IdPlato" />
         <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-        <a asp-action="Index" class="btn btn-dark">Volver</a>
+    <a asp-action="Index" class="btn btn-dark">Volver</a>
 </form>

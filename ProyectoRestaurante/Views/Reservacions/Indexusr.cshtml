@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ProyectoRestaurante.Models2.Reservacion>
+
+@{
+    ViewData["Title"] = "Indexusr";
+}
+<section class="tables">
+
+<h1 style="text-shadow: -1px 0px 6px #D4AF37;">Reservaciones</h1>
+
+<table class="table table-dark table-striped table-hover table-bordered border-light">
+    <thead>
+        <tr>
+            <th class="table-dark">
+                @Html.DisplayNameFor(model => model.FechaReserva)
+            </th>
+            <th class="table-dark">
+                @Html.DisplayNameFor(model => model.HoraReserva)
+            </th>
+            <th class="table-dark">
+                @Html.DisplayNameFor(model => model.CantidadPersonas)
+            </th>
+            <th class="table-dark">
+                Numero de mesa
+            </th>
+            <th class="table-dark">
+                Comensal
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (User.Identity.Name == item.IdNavigation.UserName)
+            {
+                <tr>
+                    <td class="table-dark">
+                        @Html.DisplayFor(modelItem => item.FechaReserva)
+                    </td>
+                    <td class="table-dark">
+                        @Html.DisplayFor(modelItem => item.HoraReserva)
+                    </td>
+                    <td class="table-dark">
+                        @Html.DisplayFor(modelItem => item.CantidadPersonas)
+                    </td>
+                    <td class="table-dark">
+                        @Html.DisplayFor(modelItem => item.IdMesaNavigation.IdMesa)
+                    </td>
+                    <td class="table-dark">
+                        @Html.DisplayFor(modelItem => item.IdNavigation.UserName)
+                    </td>
+                    <td>
+                        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.IdReservacion">Editar fecha</a> |
+                        <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.IdReservacion">Ver mas</a> |
+                        <a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.IdReservacion">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+    <br>
+    <br>
+
+</section>

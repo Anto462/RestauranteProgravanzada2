@@ -4,12 +4,24 @@
 }
 
 
-<h2>Ingresar Capacidad Requerida</h2>
-
-<form asp-controller="Reservacions" asp-action="Create" method="get">
-    <div class="form-group">
-        <label for="capacidadRequerida">Capacidad Requerida:</label>
-        <input type="number" id="capacidadRequerida" name="capacidadRequerida" class="form-control" value="@Model" />
+<section class="reservas">
+    <br>
+    <h2 class="reservastitle centrar">N U M E R O ᚐ D E ᚐ A C O M P A Ñ A N T E S</h2>
+    <br>
+    <form asp-controller="Reservacions" asp-action="Create" method="get">
+        <div class="form-group">
+            <label for="capacidadRequerida">Capacidad de mesa:</label>
+            <br>
+            <input type="number" id="capacidadRequerida" name="capacidadRequerida" class="form-control-lg" value="@Model" />
+        </div>
+        <br>
+        <button type="submit" class="btn btn-dark">Crear Reservación</button>
+    </form>
+    <br>
+    <div class="centrar">
+        | <a class="btn btn-dark" asp-action="Indexusr">Ver tus reservaciones</a> |
     </div>
-    <button type="submit" class="btn btn-primary">Crear Reservación</button>
-</form>
+    <br>
+    <br>
+
+</section>
