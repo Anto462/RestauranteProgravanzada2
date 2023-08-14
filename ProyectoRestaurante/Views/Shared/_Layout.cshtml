@@ -36,6 +36,9 @@
                     <li class="nav-item">
                     <a class="nav-link" asp-area="" asp-controller="Reservacions" asp-action="IngresarCapacidad">Reservaciones</a>
                     </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Menus" asp-action="Indexusr">Menu</a>
+                </li>
                 @{
                     if (User.Identity.IsAuthenticated)
                     {
@@ -54,7 +57,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Sobre nosotros</a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" asp-area="" asp-controller="Menus" asp-action="Indexusr">Nuestra Historia</a></li>
+                        <li><a class="dropdown-item" asp-area="" asp-controller="Estaticas" asp-action="Historia">Nuestra Historia</a></li>
                             <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" asp-area="" asp-controller="Estaticas" asp-action="Colaboradores">Nuestros colaboradores</a></li>
                             <li><hr class="dropdown-divider"></li>
