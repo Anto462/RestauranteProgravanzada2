@@ -29,6 +29,21 @@ namespace ProyectoRestaurante.Controllers
             var restauranteContext = _context.Menus.Include(m => m.IdCategoriaNavigation);
             return View(await restauranteContext.ToListAsync());
         }
+        public async Task<IActionResult> Pfuertes()
+        {
+            var restauranteContext = _context.Menus.Include(m => m.IdCategoriaNavigation);
+            return View(await restauranteContext.ToListAsync());
+        }
+        public async Task<IActionResult> postres()
+        {
+            var restauranteContext = _context.Menus.Include(m => m.IdCategoriaNavigation);
+            return View(await restauranteContext.ToListAsync());
+        }
+        public async Task<IActionResult> entradas()
+        {
+            var restauranteContext = _context.Menus.Include(m => m.IdCategoriaNavigation);
+            return View(await restauranteContext.ToListAsync());
+        }
 
         // GET: Menus/Details/5
         public async Task<IActionResult> Details(int? id)

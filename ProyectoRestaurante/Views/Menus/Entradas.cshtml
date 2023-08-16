@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProyectoRestaurante.Models2.Menu>
+
+@{
+    ViewData["Title"] = "Indexusr";
+}
+
+<section class="menu">
+    <br>
+    <h1>╚══•E N T R A D A S•══╝</h1>
+
+
+    <div class="category-buttons centrar">
+        <a class="btn menu-btn" style="color:#D4AF37;" asp-action="Entradas" value="Entradas">Entradas</a>
+        <a class="btn menu-btn" style="color:#D4AF37;" asp-action="pfuertes" value="Plato fuerte">Platos fuertes</a>
+        <a class="btn menu-btn" style="color:#D4AF37;" asp-action="postres" value="Postres">Postres</a>
+    </div>
+
+    <div class="menu-container">
+        <div class="card-deck">
+            @foreach (var item in Model)
+            {
+                if (item.IdCategoria == 2)
+                {
+                    <div class="row">
+
+                        <div class="col-md-6" style="margin-top: 50px;">
+                            <div class="card text-white bg-dark mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-3">
+                                        <img src="https://images.pexels.com/photos/8599609/pexels-photo-8599609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid rounded-start" alt="@item.NombrePlato">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body menu-Cinfo">
+                                            <h5 class="card-title menu-name">@item.NombrePlato</h5>
+                                            <p class="card-text menu-desc">@item.Descripcion</p>
+                                            <p class="card-text price">$@item.Precio</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" style="margin-top: 200px;">
+                            <div class="card text-white bg-dark mb-3">
+                                <div class="row g-0">
+                                    <div class="col-md-9">
+                                        <div class="card-body menu-Cinfo">
+                                            <h5 class="card-title menu-name">@item.NombrePlato</h5>
+                                            <p class="card-text menu-desc">@item.Descripcion</p>
+                                            <p class="card-text price">$@item.Precio</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="https://images.pexels.com/photos/8599609/pexels-photo-8599609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid rounded-start" alt="@item.NombrePlato">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+</section>

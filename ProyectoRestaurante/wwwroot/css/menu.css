@@ -67,3 +67,84 @@
     .category-button:hover {
         background-color: #ddd;
     }
+/* categorias menu principal */
+.entradas {
+    background-color: #000000;
+    position: relative;
+    background: #000000;
+    background-image: url(img/Entrada.png);
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-box-shadow: inset 0px 0px 37px 28px rgba(0,0,0,0.94);
+    -moz-box-shadow: inset 0px 0px 37px 28px rgba(0,0,0,0.94);
+    box-shadow: inset 0px 0px 37px 28px rgba(0,0,0,0.94);
+}
+
+    .entradas:hover {
+        background-color: #000000;
+        position: relative;
+        background: #000000;
+        background-image: url(img/Entrada.png);
+        background-position: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        -webkit-box-shadow: inset 0px 0px 13px 1px rgba(212,175,55,1);
+        -moz-box-shadow: inset 0px 0px 13px 1px rgba(212,175,55,1);
+        box-shadow: inset 0px 0px 13px 1px rgba(212,175,55,1);
+        transition: left 0.5s;
+    }
+
+.pfuerte {
+    background-color: #000000;
+    position: relative;
+    background: #000000;
+    background-image: url(img/platofuerte.png);
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-box-shadow: inset 0px 0px 37px 28px rgba(0,0,0,0.94);
+    -moz-box-shadow: inset 0px 0px 37px 28px rgba(0,0,0,0.94);
+    box-shadow: inset 0px 0px 37px 28px rgba(0,0,0,0.94);
+}
+
+    .pfuerte:hover {
+        background-color: #000000;
+        position: relative;
+        background: #000000;
+        background-image: url(img/platofuerte.png);
+        background-position: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        -webkit-box-shadow: inset 0px 0px 13px 1px rgba(212,175,55,1);
+        -moz-box-shadow: inset 0px 0px 13px 1px rgba(212,175,55,1);
+        box-shadow: inset 0px 0px 13px 1px rgba(212,175,55,1);
+        transition: left 0.5s;
+    }
+
+.postres {
+    background-color: #000000;
+    position: relative;
+    background: #000000;
+    background-image: url(img/postres.png);
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-box-shadow: inset 0px 0px 37px 28px rgba(0,0,0,0.94);
+    -moz-box-shadow: inset 0px 0px 37px 28px rgba(0,0,0,0.94);
+    box-shadow: inset 0px 0px 37px 28px rgba(0,0,0,0.94);
+}
+
+    .postres:hover {
+        background-color: #000000;
+        position: relative;
+        background: #000000;
+        background-image: url(img/postres.png);
+        background-position: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        -webkit-box-shadow: inset 0px 0px 13px 1px rgba(212,175,55,1);
+        -moz-box-shadow: inset 0px 0px 13px 1px rgba(212,175,55,1);
+        box-shadow: inset 0px 0px 13px 1px rgba(212,175,55,1);
+        transition: left 0.5s;
+    }

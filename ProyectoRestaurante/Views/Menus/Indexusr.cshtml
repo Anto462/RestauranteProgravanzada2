@@ -5,63 +5,46 @@
 }
 
 <section class="menu">
+    <h1>╚══•N U E S T R O ● M E N U•══╝</h1>
+</section>
+<section class="entradas">
     <br>
-    <h1>╚══•P L A T O S ● F U E R T E S•══╝</h1>
-
-
-    <div class="category-buttons centrar">
-        <!-- Aquí coloca los botones para filtrar por categorías -->
-        <input class="btn menu-btn" type="button" value="Entradas">
-        <input class="btn menu-btn" type="submit" value="Plato fuerte">
-        <input class="btn menu-btn" type="reset" value="Postres">
-    </div>
-
-    <div class="menu-container">
-        <div class="card-deck">
-            @foreach (var item in Model)
-{
-            <div class="row">
-
-                <div class="col-md-6" style="margin-top: 50px;">
-                    <div class="card text-white bg-dark mb-3">
-                        <div class="row g-0">
-                            <div class="col-md-3">
-                                <img src="https://images.pexels.com/photos/8599609/pexels-photo-8599609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid rounded-start" alt="@item.NombrePlato">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body menu-Cinfo">
-                                    <h5 class="card-title menu-name">@item.NombrePlato</h5>
-                                    <p class="card-text menu-desc">@item.Descripcion</p>
-                                    <p class="card-text price">$@item.Precio</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6" style="margin-top: 200px;">
-                    <div class="card text-white bg-dark mb-3">
-                        <div class="row g-0">
-                            <div class="col-md-9">
-                                <div class="card-body menu-Cinfo">
-                                    <h5 class="card-title menu-name">@item.NombrePlato</h5>
-                                    <p class="card-text menu-desc">@item.Descripcion</p>
-                                    <p class="card-text price">$@item.Precio</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <img src="https://images.pexels.com/photos/8599609/pexels-photo-8599609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid rounded-start" alt="@item.NombrePlato">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            }
-        </div>
-    </div>
-    </div>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <a style="text-decoration:none; color:whitesmoke; font-size:30px;" asp-action="Entradas"> Entradas</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</section>
+<section class="pfuerte">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a style="text-decoration:none; color:whitesmoke; font-size:30px;" asp-action="pfuertes">Platos Fuertes</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</section>
+<section class="postres">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a style="text-decoration:none; color:whitesmoke; font-size:30px;" asp-action="postres">Postres</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </section>
 
 
