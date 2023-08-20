@@ -14,6 +14,7 @@ namespace ProyectoRestaurante.Models2
         public int IdPlato { get; set; }
         public string NombrePlato { get; set; } = null!;
         public string Descripcion { get; set; } = null!;
+        public string Imagen { get; set; } = null!;
         public decimal Precio { get; set; }
         public int IdCategoria { get; set; }
 

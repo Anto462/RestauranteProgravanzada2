@@ -60,7 +60,7 @@ namespace ProyectoRestaurante.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdFactura,Id,FechaFactura,HoraFactura,IdDorden")] Factura factura)
         {
-            if (ModelState.IsValid)
+            if (factura.HoraFactura != null)
             {
                 _context.Add(factura);
                 await _context.SaveChangesAsync();
@@ -101,7 +101,7 @@ namespace ProyectoRestaurante.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (factura.HoraFactura != null)
             {
                 try
                 {

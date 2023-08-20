@@ -1,0 +1,40 @@
+﻿@model ProyectoRestaurante.Models.Mesa
+
+@{
+    ViewData["Title"] = "Activar";
+}
+
+<section>
+<h1 style="text-shadow: -1px 0px 6px #D4AF37;">CONFIRMA TU RESERVA</h1>
+<h4>Mesa</h4>
+<hr />
+<div class="row centrar">
+    <div class="col-md-4">
+        <form asp-action="Activar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdMesa" />
+            <div hidden class="form-group">
+                <label asp-for="Capacidad" class="control-label"></label>
+                <input asp-for="Capacidad" class="form-control" />
+                <span asp-validation-for="Capacidad" class="text-danger"></span>
+            </div>
+            <div hidden class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Confirmar reserva" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+</Section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

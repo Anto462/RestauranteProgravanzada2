@@ -90,11 +90,14 @@ namespace ProyectoRestaurante.Controllers
             {
                 _context.Add(reservacion);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Activar", "Mesas", new { id = reservacion.IdMesa });
+
             }
             ViewData["IdMesa"] = new SelectList(_context.Mesas, "IdMesa", "IdMesa", reservacion.IdMesa);
             ViewData["Id"] = new SelectList(_context.AspNetUsers, "Id", "Id", reservacion.Id);
             return View(reservacion);
+
+           
         }
 
         public IActionResult IngresarCapacidad()

@@ -15,19 +15,26 @@
         <a class="btn menu-btn" style="color:#D4AF37;" asp-action="postres" value="Postres">Postres</a>
     </div>
 
+   
     <div class="menu-container">
         <div class="card-deck">
+            @{
+                var numero = 0;
+            }
             @foreach (var item in Model)
             {
                 if (item.IdCategoria == 1)
                 {
                     <div class="row">
 
-                        <div class="col-md-6" style="margin-top: 50px;">
+                        @{
+                            if(numero%2 == 0)
+                            {
+                                <div class="col-md-6" style="margin-top: 50px;">
                             <div class="card text-white bg-dark mb-3">
                                 <div class="row g-0">
                                     <div class="col-md-3">
-                                        <img src="https://images.pexels.com/photos/8599609/pexels-photo-8599609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid rounded-start" alt="@item.NombrePlato">
+                                        <img src="@item.Imagen" class="img-fluid rounded-start" alt="">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body menu-Cinfo">
@@ -38,9 +45,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-md-6" style="margin-top: 200px;">
+                                </div>
+                            }
+                            else
+                            {
+                             <div class="col-md-6" style="margin-top: 85px; margin-left:930px">
                             <div class="card text-white bg-dark mb-3">
                                 <div class="row g-0">
                                     <div class="col-md-9">
@@ -51,12 +60,14 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <img src="https://images.pexels.com/photos/8599609/pexels-photo-8599609.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="img-fluid rounded-start" alt="@item.NombrePlato">
+                                        <img src="@item.Imagen" class="img-fluid rounded-start" alt="">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                            }
+                            numero = numero +1;
+                        }
                     </div>
                 }
             }

@@ -60,7 +60,8 @@ namespace ProyectoRestaurante.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdDetalleOrden,IdOrden,IdPlato,Cantidad,PrecioUnitario")] DetalleOrden detalleOrden)
         {
-            if (ModelState.IsValid)
+            
+            if (detalleOrden.Cantidad != null)
             {
                 _context.Add(detalleOrden);
                 await _context.SaveChangesAsync();
@@ -96,12 +97,13 @@ namespace ProyectoRestaurante.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdDetalleOrden,IdOrden,IdPlato,Cantidad,PrecioUnitario")] DetalleOrden detalleOrden)
         {
+            detalleOrden.PrecioUnitario = detalleOrden.IdPlatoNavigation.Precio * detalleOrden.Cantidad;
             if (id != detalleOrden.IdDetalleOrden)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (detalleOrden.Cantidad != null)
             {
                 try
                 {

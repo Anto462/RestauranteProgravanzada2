@@ -76,7 +76,7 @@ namespace ProyectoRestaurante.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPlato,NombrePlato,Descripcion,Precio,IdCategoria")] Menu menu)
+        public async Task<IActionResult> Create([Bind("IdPlato,NombrePlato,Descripcion,Precio,IdCategoria,Imagen")] Menu menu)
         {
             if (menu.Descripcion != null && menu.NombrePlato != null && menu.Precio > 0)
             {
@@ -110,7 +110,7 @@ namespace ProyectoRestaurante.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPlato,NombrePlato,Descripcion,Precio,IdCategoria")] Menu menu)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPlato,NombrePlato,Descripcion,Precio,IdCategoria,Imagen")] Menu menu)
         {
             if (id != menu.IdPlato)
             {
