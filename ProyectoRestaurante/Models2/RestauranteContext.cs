@@ -214,6 +214,8 @@ namespace ProyectoRestaurante.Models2
                     .HasForeignKey(d => d.IdCategoria)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Menu_Categoria");
+
+                entity.Property(e => e.Imagen);
             });
 
             modelBuilder.Entity<Mesa>(entity =>

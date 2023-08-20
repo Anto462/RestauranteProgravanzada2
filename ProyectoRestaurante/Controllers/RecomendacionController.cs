@@ -60,7 +60,7 @@ namespace ProyectoRestaurante.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdRecomendacion,Id,IdPlato,Comentario")] Recomendacion recomendacion)
         {
-            if (ModelState.IsValid)
+            if (recomendacion.Comentario != null)
             {
                 _context.Add(recomendacion);
                 await _context.SaveChangesAsync();
@@ -101,7 +101,7 @@ namespace ProyectoRestaurante.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (recomendacion.Comentario != null)
             {
                 try
                 {
