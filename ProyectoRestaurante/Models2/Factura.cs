@@ -10,6 +10,7 @@ namespace ProyectoRestaurante.Models2
         public DateTime FechaFactura { get; set; }
         public TimeSpan HoraFactura { get; set; }
         public int IdDorden { get; set; }
+        public int Costototal { get; set; }
 
         public virtual DetalleOrden IdDordenNavigation { get; set; } = null!;
         public virtual AspNetUser IdNavigation { get; set; } = null!;

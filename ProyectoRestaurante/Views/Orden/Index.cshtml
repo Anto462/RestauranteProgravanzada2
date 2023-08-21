@@ -25,7 +25,7 @@
                 @Html.DisplayNameFor(model => model.IdMesaNavigation)
             </th>
                 <th class="table-dark">
-                @Html.DisplayNameFor(model => model.IdNavigation)
+                Atendido por:
             </th>
             <th></th>
         </tr>
@@ -40,7 +40,7 @@
                 @Html.DisplayFor(modelItem => item.IdMesaNavigation.IdMesa)
             </td>
                     <td class="table-dark">
-                @Html.DisplayFor(modelItem => item.IdNavigation.Id)
+                @Html.DisplayFor(modelItem => item.IdNavigation.UserName)
             </td>
             <td>
                         <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.IdOrden">Edit</a> |

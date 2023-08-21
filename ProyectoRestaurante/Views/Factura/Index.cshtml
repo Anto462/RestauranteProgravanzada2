@@ -19,10 +19,13 @@
                     @Html.DisplayNameFor(model => model.HoraFactura)
                 </th>
                 <th class="table-dark">
-                    @Html.DisplayNameFor(model => model.IdDordenNavigation)
+                    # de orden
                 </th>
                 <th class="table-dark">
-                    @Html.DisplayNameFor(model => model.IdNavigation)
+                    Atendido por
+                </th>
+                <th class="table-dark">
+                    Total de la orden
                 </th>
                 <th></th>
             </tr>
@@ -41,12 +44,15 @@
                         @Html.DisplayFor(modelItem => item.IdDordenNavigation.IdDetalleOrden)
                     </td>
                     <td class="table-dark">
-                        @Html.DisplayFor(modelItem => item.IdNavigation.Id)
+                        @Html.DisplayFor(modelItem => item.IdNavigation.UserName)
+                    </td>
+                    <td class="table-dark">
+                        @Html.DisplayFor(modelItem => item.Costototal)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.IdFactura">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.IdFactura">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.IdFactura">Delete</a>
+                        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.IdFactura">Edit</a> |
+                        <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.IdFactura">Details</a> |
+                        <a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.IdFactura">Delete</a>
                     </td>
                 </tr>
             }

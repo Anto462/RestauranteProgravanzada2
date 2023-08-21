@@ -49,7 +49,7 @@ namespace ProyectoRestaurante.Controllers
         public IActionResult Create()
         {
             ViewData["IdOrden"] = new SelectList(_context.Ordens, "IdOrden", "IdOrden");
-            ViewData["IdPlato"] = new SelectList(_context.Menus, "IdPlato", "IdPlato");
+            ViewData["IdPlato"] = new SelectList(_context.Menus, "IdPlato", "NombrePlato");
             return View();
         }
 
@@ -63,6 +63,9 @@ namespace ProyectoRestaurante.Controllers
             
             if (detalleOrden.Cantidad != null)
             {
+                var plato = await _context.Menus.FindAsync(detalleOrden.IdPlato);
+                detalleOrden.PrecioUnitario = plato.Precio * detalleOrden.Cantidad;
+
                 _context.Add(detalleOrden);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

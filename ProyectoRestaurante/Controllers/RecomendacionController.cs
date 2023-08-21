@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -49,7 +50,7 @@ namespace ProyectoRestaurante.Controllers
         public IActionResult Create()
         {
             ViewData["Id"] = new SelectList(_context.AspNetUsers, "Id", "Id");
-            ViewData["IdPlato"] = new SelectList(_context.Menus, "IdPlato", "IdPlato");
+            ViewData["IdPlato"] = new SelectList(_context.Menus, "IdPlato", "NombrePlato");
             return View();
         }
 
@@ -60,6 +61,7 @@ namespace ProyectoRestaurante.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdRecomendacion,Id,IdPlato,Comentario")] Recomendacion recomendacion)
         {
+            recomendacion.Id = User.Identity.GetUserId();
             if (recomendacion.Comentario != null)
             {
                 _context.Add(recomendacion);

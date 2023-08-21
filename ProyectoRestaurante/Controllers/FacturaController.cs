@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -58,10 +59,20 @@ namespace ProyectoRestaurante.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdFactura,Id,FechaFactura,HoraFactura,IdDorden")] Factura factura)
+        public async Task<IActionResult> Create([Bind("IdFactura,Id,FechaFactura,HoraFactura,IdDorden,Costototal")] Factura factura)
         {
-            if (factura.HoraFactura != null)
+            factura.Id = User.Identity.GetUserId();
+            factura.FechaFactura = DateTime.Now;
+            factura.HoraFactura = DateTime.Now.TimeOfDay;
+            if (factura.IdDorden != null)
             {
+                var orden = await _context.Ordens.Include(o => o.DetalleOrdens).FirstOrDefaultAsync(o => o.IdOrden == factura.IdDorden);
+
+                if (orden != null)
+                {
+                    factura.Costototal = (int)orden.DetalleOrdens.Sum(d => d.PrecioUnitario);
+                }
+
                 _context.Add(factura);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -94,7 +105,7 @@ namespace ProyectoRestaurante.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdFactura,Id,FechaFactura,HoraFactura,IdDorden")] Factura factura)
+        public async Task<IActionResult> Edit(int id, [Bind("IdFactura,Id,FechaFactura,HoraFactura,IdDorden,Costototal")] Factura factura)
         {
             if (id != factura.IdFactura)
             {

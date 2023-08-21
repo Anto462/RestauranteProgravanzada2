@@ -188,6 +188,8 @@ namespace ProyectoRestaurante.Models2
                     .HasForeignKey(d => d.IdDorden)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Factura_DetalleOrden");
+
+                entity.Property(e => e.Costototal);
             });
 
             modelBuilder.Entity<Menu>(entity =>

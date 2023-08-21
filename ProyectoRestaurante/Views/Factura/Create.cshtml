@@ -17,25 +17,12 @@
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Id" class="control-label"></label>
-                    <select asp-for="Id" class="form-control" asp-items="ViewBag.Id"></select>
-                </div>
-                <div class="form-group">
-                    <label asp-for="FechaFactura" class="control-label"></label>
-                    <input asp-for="FechaFactura" class="form-control" />
-                    <span asp-validation-for="FechaFactura" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="HoraFactura" class="control-label"></label>
-                    <input asp-for="HoraFactura" class="form-control" />
-                    <span asp-validation-for="HoraFactura" class="text-danger"></span>
-                </div>
-                <div class="form-group">
                     <label asp-for="IdDorden" class="control-label"></label>
                     <select asp-for="IdDorden" class="form-control" asp-items="ViewBag.IdDorden"></select>
                 </div>
+                <br>
                 <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <input type="submit" value="Crear" class="btn btn-dark" />
                 </div>
             </form>
         </div>

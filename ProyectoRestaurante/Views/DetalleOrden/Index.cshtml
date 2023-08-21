@@ -16,13 +16,13 @@
                     @Html.DisplayNameFor(model => model.Cantidad)
                 </th>
                 <th class="table-dark">
-                    @Html.DisplayNameFor(model => model.PrecioUnitario)
+                    Precio total:
                 </th>
                 <th class="table-dark">
-                    @Html.DisplayNameFor(model => model.IdOrdenNavigation)
+                    # de orden
                 </th>
                 <th class="table-dark">
-                    @Html.DisplayNameFor(model => model.IdPlatoNavigation)
+                    Platillo
                 </th>
                 <th></th>
             </tr>
@@ -41,15 +41,16 @@
                         @Html.DisplayFor(modelItem => item.IdOrdenNavigation.IdOrden)
                     </td>
                     <td class="table-dark">
-                        @Html.DisplayFor(modelItem => item.IdPlatoNavigation.IdPlato)
+                        @Html.DisplayFor(modelItem => item.IdPlatoNavigation.NombrePlato)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.IdDetalleOrden">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.IdDetalleOrden">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.IdDetalleOrden">Delete</a>
+                        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.IdDetalleOrden">Editar</a> |
+                        <a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.IdDetalleOrden">Eliminar</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+    <br>
+    <br>
 </section>

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -48,7 +49,12 @@ namespace ProyectoRestaurante.Controllers
         // GET: Orden/Create
         public IActionResult Create()
         {
-            ViewData["IdMesa"] = new SelectList(_context.Mesas, "IdMesa", "IdMesa");
+            var mesasValidas = _context.Mesas
+                .Where(m => m.Estado.Equals("Activo"))
+                .Select(m => new { Value = m.IdMesa, Text = m.IdMesa })
+                .ToList();
+
+            ViewBag.IdMesa = new SelectList(mesasValidas, "Value", "Text");
             ViewData["Id"] = new SelectList(_context.AspNetUsers, "Id", "Id");
             return View();
         }
@@ -60,6 +66,8 @@ namespace ProyectoRestaurante.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdOrden,Id,IdMesa,FechaOrden")] Orden orden)
         {
+            orden.Id = User.Identity.GetUserId();
+            orden.FechaOrden = DateTime.Now;
             if (orden.FechaOrden != null)
             {
                 _context.Add(orden);
