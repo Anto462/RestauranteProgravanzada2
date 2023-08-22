@@ -97,7 +97,7 @@ namespace ProyectoRestaurante.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (mesa.Estado != null)
             {
                 try
                 {
@@ -170,6 +170,58 @@ namespace ProyectoRestaurante.Controllers
             }
             return View(mesa);
         }
+
+        public async Task<IActionResult> Desactivar(int? id)
+        {
+            if (id == null || _context.Mesa == null)
+            {
+                return NotFound();
+            }
+
+            var mesa = await _context.Mesa.FindAsync(id);
+            if (mesa == null)
+            {
+                return NotFound();
+            }
+            return View(mesa);
+        }
+
+        // POST: Mesas/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Desactivar(int id, [Bind("IdMesa,Capacidad,Estado")] Mesa mesa)
+        {
+            mesa.Estado = "Inactivo";
+            if (id != mesa.IdMesa)
+            {
+                return NotFound();
+            }
+
+            if (mesa.Estado != null)
+            {
+                try
+                {
+                    _context.Update(mesa);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!MesaExists(mesa.IdMesa))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(mesa);
+        }
+
 
         // GET: Mesas/Delete/5
         public async Task<IActionResult> Delete(int? id)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,7 @@ namespace ProyectoRestaurante.Controllers
             _context = context;
         }
 
+        [Authorize]
         // GET: Recomendacion
         public async Task<IActionResult> Index()
         {
@@ -45,7 +47,7 @@ namespace ProyectoRestaurante.Controllers
 
             return View(recomendacion);
         }
-
+        
         // GET: Recomendacion/Create
         public IActionResult Create()
         {
@@ -66,7 +68,7 @@ namespace ProyectoRestaurante.Controllers
             {
                 _context.Add(recomendacion);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             ViewData["Id"] = new SelectList(_context.AspNetUsers, "Id", "Id", recomendacion.Id);
             ViewData["IdPlato"] = new SelectList(_context.Menus, "IdPlato", "IdPlato", recomendacion.IdPlato);
@@ -121,7 +123,7 @@ namespace ProyectoRestaurante.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             ViewData["Id"] = new SelectList(_context.AspNetUsers, "Id", "Id", recomendacion.Id);
             ViewData["IdPlato"] = new SelectList(_context.Menus, "IdPlato", "IdPlato", recomendacion.IdPlato);
