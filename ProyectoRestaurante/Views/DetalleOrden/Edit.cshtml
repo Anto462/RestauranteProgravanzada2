@@ -1,18 +1,11 @@
 @model ProyectoRestaurante.Models2.DetalleOrden
 
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
+<h1 style="text-shadow: -1px 0px 6px #D4AF37;">Editar</h1>
 
 <h4>DetalleOrden</h4>
 <hr />
-<div class="row">
+    <div class="row centrar">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -38,15 +31,12 @@
                 <span asp-validation-for="PrecioUnitario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                    <input type="submit" value="Guardar" class="btn btn-dark" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-</body>
-</html>
+    <div>
+        <a asp-action="Index" class="btn btn-dark">Volver</a>
+    </div>

@@ -38,10 +38,17 @@
                     <td class="table-dark">
                         @Html.DisplayFor(modelItem => item.IdPlatoNavigation.NombrePlato)
                     </td>
-                    <td>
-                        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.IdRecomendacion">Editar</a> |
+                         <td>
+                    @{
+                     if (User.Identity.Name == item.IdNavigation.UserName)
+                {
+                        
+                        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.IdRecomendacion">Editar</a> 
                         <a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.IdRecomendacion">Eliminar</a>
-                    </td>
+                       
+                }
+                    }
+                     </td>   
                 </tr>
             }
         </tbody>

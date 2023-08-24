@@ -50,6 +50,7 @@
                         @Html.DisplayFor(modelItem => item.Costototal)
                     </td>
                     <td>
+                        <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.IdFactura">Ver mas</a> |
                         <a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.IdFactura">Eliminar</a>
                     </td>
                 </tr>
