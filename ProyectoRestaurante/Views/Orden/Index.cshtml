@@ -9,47 +9,49 @@
 
 
 <section class="tables">
-<h1 style="text-shadow: -1px 0px 6px #D4AF37;">Ordenes</h1>
+    <h1 style="text-shadow: -1px 0px 6px #D4AF37;">Ordenes</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-dark">Añadir</a>
-</p>
+    <p>
+        <a asp-action="Create" class="btn btn-dark">Añadir</a>
+    </p>
 
     <table class="table table-dark table-striped table-hover table-bordered border-light">
-    <thead>
-        <tr>
+        <thead>
+            <tr>
                 <th class="table-dark">
-                @Html.DisplayNameFor(model => model.FechaOrden)
-            </th>
+                    @Html.DisplayNameFor(model => model.FechaOrden)
+                </th>
                 <th class="table-dark">
-                @Html.DisplayNameFor(model => model.IdMesaNavigation)
-            </th>
+                    @Html.DisplayNameFor(model => model.IdMesaNavigation)
+                </th>
                 <th class="table-dark">
-                Atendido por:
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
+                    Atendido por:
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var fecha = item.FechaOrden.ToShortDateString();
+                <tr>
                     <td class="table-dark">
-                @Html.DisplayFor(modelItem => item.FechaOrden)
-            </td>
+                        @Html.DisplayFor(modelItem => fecha)
+                    </td>
                     <td class="table-dark">
-                @Html.DisplayFor(modelItem => item.IdMesaNavigation.IdMesa)
-            </td>
+                        @Html.DisplayFor(modelItem => item.IdMesaNavigation.IdMesa)
+                    </td>
                     <td class="table-dark">
-                @Html.DisplayFor(modelItem => item.IdNavigation.UserName)
-            </td>
-            <td>
+                        @Html.DisplayFor(modelItem => item.IdNavigation.UserName)
+                    </td>
+                    <td>
                         <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.IdOrden">Editar</a> |
                         <a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.IdOrden">Eliminar</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
     <br>
     <br>
 </section>

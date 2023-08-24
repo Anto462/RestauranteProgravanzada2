@@ -1,5 +1,9 @@
 @model ProyectoRestaurante.Models2.Factura
 
+@{
+    var fecha = Model.FechaFactura.ToShortDateString();
+}
+
 <section class="detalles">
     <br>
     <br>
@@ -13,7 +17,7 @@
             <dd class="col-sm-10">@Html.DisplayFor(model => model.IdFactura)</dd>
 
             <dt class="col-sm-2">Fecha Factura</dt>
-            <dd class="col-sm-10">@Html.DisplayFor(model => model.FechaFactura)</dd>
+            <dd class="col-sm-10">@Html.DisplayFor(model => @fecha)</dd>
 
             <dt class="col-sm-2">Hora Factura</dt>
             <dd class="col-sm-10">@Html.DisplayFor(model => model.HoraFactura)</dd>

@@ -33,9 +33,10 @@
         <tbody>
             @foreach (var item in Model)
             {
+                var fecha = item.FechaFactura.ToShortDateString();
                 <tr>
                     <td class="table-dark">
-                        @Html.DisplayFor(modelItem => item.FechaFactura)
+                        @Html.DisplayFor(modelItem => fecha)
                     </td>
                     <td class="table-dark">
                         @Html.DisplayFor(modelItem => item.HoraFactura)
