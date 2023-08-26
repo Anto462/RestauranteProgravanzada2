@@ -39,7 +39,7 @@ namespace ProyectoRestaurante.Controllers
             {
                 if (int.TryParse(search, out int searchNumber))
                 {
-                    query = query.Where(o => o.IdDordenNavigation.IdOrden == searchNumber);
+                    query = query.Where(o => o.IdDorden == searchNumber);
                 }
                 else
                 {

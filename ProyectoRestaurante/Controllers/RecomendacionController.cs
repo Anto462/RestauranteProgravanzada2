@@ -27,7 +27,7 @@ namespace ProyectoRestaurante.Controllers
             var restauranteContext = _context.Recomendacions.Include(r => r.IdNavigation).Include(r => r.IdPlatoNavigation);
             return View(await restauranteContext.ToListAsync());
         }
-
+        [Authorize]
         public async Task<IActionResult> IndexUsr()
         {
             var restauranteContext = _context.Recomendacions.Include(r => r.IdNavigation).Include(r => r.IdPlatoNavigation);
