@@ -6,10 +6,24 @@
 <section class="tables">
 
     <h1 style="text-shadow: -1px 0px 6px #D4AF37;">Reservaciones</h1>
+    <br>
+    <form method="get" asp-action="Index">
+        <div class="buscadores input-group" style="text-size-adjust">
+            <input type="search" placeholder="Buscador" value="@ViewData["GetReservassdetails"]" name="search"
+                   style="width: 500px" class="input form-control" />
+            <div class="input-group-append">
+                <input type="submit" value="Buscar" class="btn btn-dark" />
+            </div>
+        </div>
+    </form>
 
+    <br>
     <table class="table table-dark table-striped table-hover table-bordered border-light">
         <thead>
             <tr>
+                <th class="table-dark">
+                    # de reservacion:
+                </th>
                 <th class="table-dark">
                     @Html.DisplayNameFor(model => model.FechaReserva)
                 </th>
@@ -33,6 +47,9 @@
             {
                 var fecha = item.FechaReserva.ToShortDateString();
                 <tr>
+                    <td class="table-dark">
+                        @Html.DisplayFor(modelItem => item.IdReservacion)
+                    </td>
                     <td class="table-dark">
                         @Html.DisplayFor(modelItem => fecha)
                     </td>

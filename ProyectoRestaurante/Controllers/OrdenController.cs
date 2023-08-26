@@ -26,6 +26,31 @@ namespace ProyectoRestaurante.Controllers
             return View(await restauranteContext.ToListAsync());
         }
 
+        [HttpGet]
+        public async Task<ActionResult> Index(string search)
+        {
+            ViewData["GetOrdenessdetails"] = search;
+
+            var query = from orden in _context.Ordens
+                        .Include(o => o.IdMesaNavigation)
+                        .Include(o => o.IdNavigation)
+                        select orden;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                if (int.TryParse(search, out int searchNumber))
+                {
+                    query = query.Where(o => o.IdMesaNavigation.IdMesa == searchNumber || o.IdOrden == searchNumber);
+                }
+                else
+                {
+                    query = query.Where(o => o.IdNavigation.UserName.Contains(search));
+                }
+            }
+
+            return View(await query.AsNoTracking().ToListAsync());
+        }
+
         // GET: Orden/Details/5
         public async Task<IActionResult> Details(int? id)
         {

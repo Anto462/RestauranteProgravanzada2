@@ -11,6 +11,9 @@
         <thead>
             <tr>
                 <th class="table-dark">
+                    # de reservacion
+                </th>
+                <th class="table-dark">
                     @Html.DisplayNameFor(model => model.FechaReserva)
                 </th>
                 <th class="table-dark">
@@ -35,6 +38,9 @@
                 {
                     var fecha = item.FechaReserva.ToShortDateString();
                     <tr>
+                         <td class="table-dark">
+                            @Html.DisplayFor(modelItem => item.IdReservacion)
+                        </td>
                         <td class="table-dark">
                             @Html.DisplayFor(modelItem => fecha)
                         </td>

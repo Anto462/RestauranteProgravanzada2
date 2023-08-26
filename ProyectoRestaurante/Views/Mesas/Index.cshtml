@@ -10,6 +10,17 @@
     <p>
         <a asp-action="Create" class="btn btn-dark">Añadir</a>
     </p>
+        <form method="get" asp-action="Index">
+    <div class="buscadores input-group" style="text-size-adjust">
+            <input type="search" placeholder="Buscador" value="@ViewData["GetMesassdetails"]" name="search"
+               style="width: 500px" class="input form-control" />
+        <div class="input-group-append">
+            <input type="submit" value="Buscar" class="btn btn-dark" />
+        </div>
+    </div>
+</form>
+
+<br>
     <table class="table table-dark table-striped table-hover table-bordered border-light">
         <thead>
             <tr>

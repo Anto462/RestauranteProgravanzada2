@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ProyectoRestaurante.Models2.Recomendacion>
+
+<section class="resenas">
+    <br>
+    <h1>╚══•R E S E Ñ A S•══╝</h1>
+    <p>
+        <a asp-action="Create" class="btn menu-btn">Añadir</a>
+    </p>
+    <div class="menu-container">
+        <div class="card-deck">
+            @{
+                var numero = 0;
+            }
+            @foreach (var item in Model)
+            {
+
+                            <div class="row">
+
+                        @{
+                            if (numero % 2 == 0)
+                            {
+                            <div class="card tarjeta text-bg-dark centrar mb-3" style="max-width: 540px; margin-top: 35px; margin-right:880px">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                    </div>
+                                    <div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.IdPlatoNavigation.NombrePlato)</h5>
+                                            <p style="font-size:14px;" class="card-text">@Html.DisplayFor(modelItem => item.Comentario)</p>
+                                            <p class="card-text"><small class="text-body-secondary">@Html.DisplayFor(modelItem => item.IdNavigation.UserName)</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                            }
+                            else
+                            {
+                            <div class="card tarjeta text-bg-dark centrar mb-3" style="max-width: 540px; margin-top: 35px; margin-left:880px">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                    </div>
+                                    <div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.IdPlatoNavigation.NombrePlato)</h5>
+                                            <p style="font-size:14px;" class="card-text">@Html.DisplayFor(modelItem => item.Comentario)</p>
+                                            <p class="card-text"><small class="text-body-secondary">@Html.DisplayFor(modelItem => item.IdNavigation.UserName)</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                            numero = numero + 1;
+                        }
+                            </div>
+            }
+        </div>
+    </div>
+
+</section>

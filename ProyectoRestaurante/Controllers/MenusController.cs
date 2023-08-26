@@ -24,6 +24,29 @@ namespace ProyectoRestaurante.Controllers
             var restauranteContext = _context.Menus.Include(m => m.IdCategoriaNavigation);
             return View(await restauranteContext.ToListAsync());
         }
+        [HttpGet]
+        public async Task<ActionResult> Index(string search)
+        {
+            ViewData["GetMenusdetails"] = search;
+
+            var query = from Menu in _context.Menus
+                        .Include(o => o.IdCategoriaNavigation)
+                        select Menu;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                if (int.TryParse(search, out int searchNumber))
+                {
+                    query = query.Where(o => o.IdPlato == searchNumber);
+                }
+                else
+                {
+                    query = query.Where(o => o.IdCategoriaNavigation.NombreCat.Contains(search) || o.NombrePlato.Contains(search));
+                }
+            }
+
+            return View(await query.AsNoTracking().ToListAsync());
+        }
         public async Task<IActionResult> Indexusr()
         {
             var restauranteContext = _context.Menus.Include(m => m.IdCategoriaNavigation);
@@ -40,6 +63,11 @@ namespace ProyectoRestaurante.Controllers
             return View(await restauranteContext.ToListAsync());
         }
         public async Task<IActionResult> entradas()
+        {
+            var restauranteContext = _context.Menus.Include(m => m.IdCategoriaNavigation);
+            return View(await restauranteContext.ToListAsync());
+        }
+        public async Task<IActionResult> Vinos()
         {
             var restauranteContext = _context.Menus.Include(m => m.IdCategoriaNavigation);
             return View(await restauranteContext.ToListAsync());

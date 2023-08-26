@@ -27,6 +27,24 @@ namespace ProyectoRestaurante.Controllers
                           View(await _context.Mesa.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Mesa'  is null.");
         }
+        [HttpGet]
+        public async Task<ActionResult> Index(string search)
+        {
+            ViewData["GetMesassdetails"] = search;
+
+            var query = from Mesa in _context.Mesa
+                        select Mesa;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                if (int.TryParse(search, out int searchNumber))
+                {
+                    query = query.Where(o => o.IdMesa == searchNumber);
+                }
+            }
+
+            return View(await query.AsNoTracking().ToListAsync());
+        }
 
         // GET: Mesas/Details/5
         public async Task<IActionResult> Details(int? id)

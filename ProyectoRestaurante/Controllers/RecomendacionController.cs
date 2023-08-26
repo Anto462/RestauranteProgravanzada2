@@ -28,6 +28,12 @@ namespace ProyectoRestaurante.Controllers
             return View(await restauranteContext.ToListAsync());
         }
 
+        public async Task<IActionResult> IndexUsr()
+        {
+            var restauranteContext = _context.Recomendacions.Include(r => r.IdNavigation).Include(r => r.IdPlatoNavigation);
+            return View(await restauranteContext.ToListAsync());
+        }
+
         // GET: Recomendacion/Details/5
         public async Task<IActionResult> Details(int? id)
         {

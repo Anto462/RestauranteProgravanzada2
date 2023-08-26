@@ -25,6 +25,30 @@ namespace ProyectoRestaurante.Controllers
             var restauranteContext = _context.Facturas.Include(f => f.IdDordenNavigation).Include(f => f.IdNavigation);
             return View(await restauranteContext.ToListAsync());
         }
+        [HttpGet]
+        public async Task<ActionResult> Index(string search)
+        {
+            ViewData["GetFacturassdetails"] = search;
+
+            var query = from Factura in _context.Facturas
+                        .Include(o => o.IdDordenNavigation)
+                        .Include(o => o.IdNavigation)
+                        select Factura;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                if (int.TryParse(search, out int searchNumber))
+                {
+                    query = query.Where(o => o.IdDordenNavigation.IdOrden == searchNumber);
+                }
+                else
+                {
+                    query = query.Where(o => o.IdNavigation.UserName.Contains(search));
+                }
+            }
+
+            return View(await query.AsNoTracking().ToListAsync());
+        }
 
         // GET: Factura/Details/5
         public async Task<IActionResult> Details(int? id)

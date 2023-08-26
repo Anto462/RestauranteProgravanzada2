@@ -26,6 +26,30 @@ namespace ProyectoRestaurante.Controllers
             var restauranteContext = _context.Reservacions.Include(r => r.IdMesaNavigation).Include(r => r.IdNavigation);
             return View(await restauranteContext.ToListAsync());
         }
+        [HttpGet]
+        public async Task<ActionResult> Index(string search)
+        {
+            ViewData["GetReservassdetails"] = search;
+
+            var query = from Reservacion in _context.Reservacions
+                        .Include(o => o.IdMesaNavigation)
+                        .Include(o => o.IdNavigation)
+                        select Reservacion;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                if (int.TryParse(search, out int searchNumber))
+                {
+                    query = query.Where(o => o.IdMesaNavigation.IdMesa == searchNumber || o.IdReservacion == searchNumber);
+                }
+                else
+                {
+                    query = query.Where(o => o.IdNavigation.UserName.Contains(search));
+                }
+            }
+
+            return View(await query.AsNoTracking().ToListAsync());
+        }
         public async Task<IActionResult> Indexusr()
         {
             var restauranteContext = _context.Reservacions.Include(r => r.IdMesaNavigation).Include(r => r.IdNavigation);
